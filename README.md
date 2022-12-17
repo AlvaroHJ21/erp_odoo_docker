@@ -4,7 +4,9 @@ Levantar los servicios
 docker-compose up -d
 ```
 
-Resetear los servicios
+Reiniciar los servicios
 ```
 docker-compose restart
 ```
+
+guyc-gbt8-seat
