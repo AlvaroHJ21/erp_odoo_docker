@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="student_add_tree_view">
+        <field name="name"> Student Tree view</field>
+        <field name="model">student.add</field>
+        <field name="priority" eval="16"/>
+        <field name="arch" type="xml">
+            <tree string="Student list">
+                <field name="name"/>
+                <field name="age"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <record model="ir.ui.view" id="student_add_form_view">
+         <field name="name"> Student.form.view</field>
+        <field name="model">student.add</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <h1>
+                        <field name="name" placeholder="Student name"/>
+                    </h1>
+                    <h2>
+                        <field name="age" placeholder="Student age"/>
+                    </h2>
+                    <notebook>
+                        <page string="student form">
+                            <group>
+<!--                                <filed name="age"/>-->
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <record model="ir.actions.act_window" id="action_student_add">
+        <field name="name">Studemts</field>
+        <field name="res_model">student.add</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="School" id="school_root_menu"/>
+    <menuitem name="Students" id="student_add_menu"
+              parent="school_root_menu"
+              action="action_student_add"
+              sequence="1"/>
+</odoo>
