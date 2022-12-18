@@ -1,19 +1,12 @@
-# -*- coding: utf-8 -*-
-
 {
     "name": "Biblioteca Reserva",
-    "version": "1.0",  # find a way to make this dynamic
+    'author': 'Grupo 5',
+    'category':'Extra Tools',
+    'version': '1.0.0',
     "depends": ["base"],
     "summary": "A smart library management system.",
     "description": """
-        A library management system is software built to handle the primary housekeeping 
-        functions of a library. The purpose of a library management system is to operate 
-        a library with efficiency and at reduced costs. Library activities include 
-        purchasing books, cataloguing, indexing books, recording books in circulation and 
-        stock checking, which when done by automated software eliminates the need for 
-        repetitive manual work and minimizes the chances of errors.
-
-        Smart Maktaba LMS is such a system.
+        El propósito de un sistema de gestión de bibliotecas es operar una biblioteca con eficiencia y a costos reducidos. Las actividades de la biblioteca incluyen la compra de libros, la catalogación, la indexación de libros, el registro de libros en circulación y la verificación de existencias, que cuando se realizan mediante un software automatizado eliminan la necesidad de un trabajo manual repetitivo y minimizan las posibilidades de errores.
     """,
     "data": [
         "security/ir.model.access.csv",
@@ -24,4 +17,7 @@
         "views/reservations.xml",
         "views/menu.xml",
     ],
+    'installable': True,
+    'application': True,
+    'auto-install': False
 }
