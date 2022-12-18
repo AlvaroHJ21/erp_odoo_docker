@@ -10,13 +10,13 @@ from .base import AbstractBase
 class BookFormat:
     """Class to store the various types of book formats."""
 
-    HARD_COVER = "Hard Cover"
-    PAPER_BACK = "Paper Back"
-    AUDIO_BOOK = "Audio Book"
+    HARD_COVER = "Tapa dura"
+    PAPER_BACK = "Parte posterior del papel"
+    AUDIO_BOOK = "Audio libro"
     EBOOK = "Ebook"
-    NEWSPAPER = "Newspaper"
-    MAGAZINE = "Magazine"
-    JOURNAL = "Journal"
+    NEWSPAPER = "Periódico"
+    MAGAZINE = "Revista"
+    JOURNAL = "Diario"
 
     OPTIONS = [
         HARD_COVER,
@@ -64,30 +64,43 @@ class Book(models.Model):
     _inherit = "abstract.base"
 
     name = fields.Char(
-        string="Name",
-        help="The title/name of the book to be added",
+        help="El título/nombre del libro que se agregará",
         required=True,
         copy=False,
+        string="Titulo/Nombre"
     )
     subject = fields.Char(
-        help="The subject covered by the book.", required=True, copy=False
+        help="El tema que trata el libro.", 
+        required=True, 
+        copy=False,
+        string="Tema"
     )
     publisher = fields.Char(
-        help="The publisher of the book", required=True, copy=False
+        help="El editor del libro.", 
+        required=True, 
+        copy=False,
+        string="Editor"
     )
     language = fields.Char(
-        help="The language the book is written in", default="en"
+        help="El idioma en el que está escrito el libro.", 
+        default="en",
+        string="Idioma"
     )
     pages = fields.Integer(
-        help="The number of readable pages a book has.",
+        help="El número de páginas legibles que tiene un libro.",
         required=True,
         copy=False,
+        string="Páginas"
     )
     format = fields.Selection(
-        selection=BookFormat.SELECTION, default=BookFormat.HARD_COVER
+        selection=BookFormat.SELECTION, 
+        default=BookFormat.HARD_COVER,
+        string="Formato"
     )
     description = fields.Text(
-        copy=False, help="A general description of the book"
+        copy=False, 
+        help="A general description of the book",
+        string="Descripción"
     )
     author = fields.Many2one(
         "author",
@@ -97,6 +110,7 @@ class Book(models.Model):
             "A foreign key to an author who wrote the book. "
             "The author is stored in a different model."
         ),
+        string="Autor"
     )
     book_items = fields.One2many("book.item", "book", string="Book Items")
 
@@ -113,10 +127,10 @@ class Book(models.Model):
 class BookStatus:
     """Class to store the various statuses a book item has."""
 
-    AVAILABLE = "Available"
-    RESERVED = "Reserved"
-    BORROWED = "Borrowed"
-    LOST = "Lost"
+    AVAILABLE = "Disponible"
+    RESERVED = "Reservado"
+    BORROWED = "Prestado"
+    LOST = "Perdido"
 
     OPTIONS = [AVAILABLE, RESERVED, BORROWED, LOST]
     SELECTION = [
@@ -134,15 +148,22 @@ class BookItem(models.Model):
     _description = "A single book item in a library."
     _inherit = "abstract.base"
 
-    book = fields.Many2one("book", required=True, ondelete="restrict")
+    book = fields.Many2one("book", 
+        required=True, 
+        ondelete="restrict",
+        string="Libro"
+    )
     barcode = fields.Char(
         help="A unique bar code to identify a unique book",
         copy=False,
         default=lambda self: self._barcode(),
         readonly=True,
+        string="Código de barras"
     )
     status = fields.Selection(
-        selection=BookStatus.SELECTION, default=BookStatus.AVAILABLE
+        selection=BookStatus.SELECTION, 
+        default=BookStatus.AVAILABLE,
+        string="Estado"
     )
     issued_to = fields.One2many(
         "issued.book.item",
@@ -151,10 +172,12 @@ class BookItem(models.Model):
         readonly=True,
     )
     borrowed_by = fields.Many2one(
-        "member", ondelete="restrict", string="Member"
+        "member", ondelete="restrict", 
+        string="Member"
     )
     reserved_by = fields.Many2one(
-        "member", ondelete="restrict", string="Member"
+        "member", ondelete="restrict", 
+        string="Member"
     )
     reservations = fields.One2many("book.item.reservation", "book_item")
     fines = fields.One2many("fine", "book_item")
@@ -391,17 +414,27 @@ class BookItemReservation(models.Model):
     _inherit = "abstract.base"
 
     book_item = fields.Many2one(
-        "book.item", required=True, ondelete="restrict"
+        "book.item", 
+        required=True, 
+        ondelete="restrict",
+        string="Libro Item",
     )
-    member = fields.Many2one("member", required=True, ondelete="restrict")
+    member = fields.Many2one(
+        "member", 
+        required=True, 
+        ondelete="restrict",
+        string="Miembro",
+    )
     reserved_on = fields.Datetime(
         default=lambda self: fields.Datetime.now(),
         help="Date when a reservation is made.",
+        string="Reservado en",
     )
     status = fields.Selection(
         selection=ReservationStatus.SELECTION,
         default=ReservationStatus.WAITING,
         help="Status of a book item reservation.",
+        string="Estado",
     )
 
     @api.constrains("book_item")

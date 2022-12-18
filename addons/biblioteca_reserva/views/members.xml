@@ -4,7 +4,7 @@
 
 <!-- Action -->
 <record id="member_model_action" model="ir.actions.act_window">
-    <field name="name">Members</field>
+    <field name="name">Miembros</field>
     <field name="res_model">member</field>
     <field name="view_mode">tree,form</field>
 </record>
@@ -33,31 +33,31 @@
             <sheet>
                 <group>
                     <group>
-                        <separator string="Bio Information"/>
+                        <separator string="Información"/>
                         <field name="name"/>
                     </group>
                     <group>
-                        <separator string="Contact Details"/>
+                        <separator string="Detalles de contacto"/>
                         <field name="phone_number"/>
                         <field name="email"/>
                     </group>
                     <group>
-                        <separator string="Activity Information"/>
+                        <separator string="Información de actividad"/>
                         <field name="active"/>
-                        <field name="removed_on"/>
+                        <field name="removed_on" string="Eliminado el"/>
                     </group>
                 </group>
                 <notebook>
-                    <page string="Issued Book Items">
+                    <page string="Items de libros emitidos">
                         <field name="issued_book_items">
                             <tree string="Items">
-                                <field name="book_item">
-                                    <tree string="Issued Book Items">
+                                <field name="book_item" string="Libro Item">
+                                    <tree string="Items de libros emitidos">
                                         <field name="barcode"/>
                                         <field name="status"/>
                                     </tree>
                                 </field>
-                                <field name="due_date"/>
+                                <field name="due_date" string="Fecha de vencimiento"/>
                             </tree> 
                         </field>
                     </page>

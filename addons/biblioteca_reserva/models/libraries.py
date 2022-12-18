@@ -5,10 +5,10 @@ from odoo import api, fields, models
 class LibraryType:
     """Different types of libraries."""
 
-    PUBLIC = "PUBLIC"
-    ACADEMIC = "ACADEMIC"
-    SCHOOL = "SCHOOL"
-    INDUSTRY = "INDUSTRY"
+    PUBLIC = "PUBLICO"
+    ACADEMIC = "ACADEMICO"
+    SCHOOL = "ESCOLAR"
+    INDUSTRY = "INDUSTRIAL"
 
     OPTIONS = [PUBLIC, ACADEMIC, SCHOOL, INDUSTRY]
     SELECTION = [
@@ -30,6 +30,7 @@ class Library(models.Model):
         "res.users",
         ondelete="restrict",
         domain=lambda self: self._current_user_domain(),
+        string="Usuario",
     )
     name = fields.Char(
         help="El nombre de la libreria",
@@ -103,12 +104,15 @@ class BorrowingSettings(models.Model):
     _inherit = "abstract.base"
 
     duration = fields.Integer(
-        required=True, help="La duración predeterminada de un libro que puede ser prestado"
+        required=True, 
+        help="La duración predeterminada de un libro que puede ser prestado",
+        string="Duración",
     )
     duration_type = fields.Selection(
         selection=DurationType.SELECTION,
         required=True,
         help="Calender bands for duration.",
+        string="Tipo de duración",
     )
 
     @api.constrains("library")

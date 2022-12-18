@@ -4,7 +4,7 @@
 
 <!-- Action -->
 <record id="library_model_action" model="ir.actions.act_window">
-    <field name="name">Librería</field>
+    <field name="name">Librerias</field>
     <field name="res_model">library</field>
     <field name="view_mode">tree,form</field>
 </record>
@@ -47,7 +47,7 @@
                         <field name="email"/>
                     </group>
                     <group>
-                        <separator string="Location"/>
+                        <separator string="Ubicación"/>
                         <field name="address"/>
                     </group>
                     <group>
@@ -59,8 +59,8 @@
                     <page string="Configuración de préstamos">
                         <field name="borrowing_settings">
                             <tree string="Configuración de préstamos" editable="bottom">
-                                <field name="duration"/>
                                 <field name="duration_type"/>
+                                <field name="duration"/>
                             </tree> 
                         </field>
                     </page>

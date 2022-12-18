@@ -4,7 +4,7 @@
 
 <!-- Action -->
 <record id="book_model_action" model="ir.actions.act_window">
-    <field name="name">Books</field>
+    <field name="name">Libros</field>
     <field name="res_model">book</field>
     <field name="view_mode">tree,form</field>
 </record>
@@ -45,7 +45,7 @@
                         <field name="author"/>
                     </group>
                     <group>
-                        <separator string="Book Information"/>
+                        <separator string="Información del libro"/>
                         <field name="format"/>
                         <field name="pages"/>
                     </group>

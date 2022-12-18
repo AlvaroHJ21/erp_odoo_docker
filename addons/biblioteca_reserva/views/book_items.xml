@@ -4,7 +4,7 @@
 
 <!-- Action -->
 <record id="book_item_model_action" model="ir.actions.act_window">
-    <field name="name">Book Items</field>
+    <field name="name">Libros Items</field>
     <field name="res_model">book.item</field>
     <field name="view_mode">tree,form,kanban</field>
 </record>

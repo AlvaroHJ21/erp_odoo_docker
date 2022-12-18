@@ -4,7 +4,7 @@
 
 <!-- Action -->
 <record id="book_item_reservation_model_action" model="ir.actions.act_window">
-    <field name="name">Reservations</field>
+    <field name="name">Reservaciones</field>
     <field name="res_model">book.item.reservation</field>
     <field name="view_mode">tree,form</field>
 </record>
