@@ -23,7 +23,7 @@ class Library(models.Model):
     """A library."""
 
     _name = "library"
-    _description = "A physical library."
+    _description = "Una biblioteca fisica."
     _inherit = "ownerless.abstract.base"
 
     user = fields.Many2one(
@@ -32,33 +32,33 @@ class Library(models.Model):
         domain=lambda self: self._current_user_domain(),
     )
     name = fields.Char(
-        help="The name of the library.",
+        help="El nombre de la libreria",
         required=True,
         copy=False,
-        string="Library Name",
+        string="Nombre Librería",
     )
     address = fields.Char(
-        help="Physical address of the library",
+        help="Dirección de la librería",
         required=True,
         copy=False,
-        string="Library Address",
+        string="Dirección librería",
     )
     library_type = fields.Selection(
         selection=LibraryType.SELECTION,
-        string="Type",
-        help="The type of a library",
+        string="Tipo",
+        help="El tipo de librería",
         required=True,
     )
     phone_number = fields.Char(
-        help="The primary phone number of the library",
+        help="El número de contacto principal ",
         required=True,
         copy=False,
-        string="Library Phone Number",
+        string="Numero de contacto",
     )
     email = fields.Char(
-        help="The primary email address of the library",
+        help="El correo electrónico ",
         copy=False,
-        string="Library Email",
+        string="Correo electrónico ",
     )  # Todo: Validate phone number and email
     borrowing_settings = fields.One2many("borrowing.settings", "library")
     fine_settings = fields.One2many("fine.settings", "library")
@@ -103,7 +103,7 @@ class BorrowingSettings(models.Model):
     _inherit = "abstract.base"
 
     duration = fields.Integer(
-        required=True, help="The default duration a book can be borrowed."
+        required=True, help="La duración predeterminada de un libro que puede ser prestado"
     )
     duration_type = fields.Selection(
         selection=DurationType.SELECTION,

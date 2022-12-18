@@ -4,7 +4,7 @@
 
 <!-- Action -->
 <record id="library_model_action" model="ir.actions.act_window">
-    <field name="name">Libraries</field>
+    <field name="name">Librería</field>
     <field name="res_model">library</field>
     <field name="view_mode">tree,form</field>
 </record>
@@ -33,7 +33,7 @@
             <sheet>
                 <group>
                     <group>
-                        <separator string="User(s)"/>
+                        <separator string="Usuario(s)"/>
                         <field name="user"/>
                     </group>
                     <group>
@@ -42,7 +42,7 @@
                         <field name="library_type"/>
                     </group>
                     <group>
-                        <separator string="Contact Information"/>
+                        <separator string="Información de contacto"/>
                         <field name="phone_number"/>
                         <field name="email"/>
                     </group>
@@ -51,23 +51,23 @@
                         <field name="address"/>
                     </group>
                     <group>
-                        <separator string="Activity Information"/>
+                        <separator string="Estado"/>
                         <field name="active"/>
                     </group>
                 </group>
                 <notebook>
-                    <page string="Borrowing Settings">
+                    <page string="Configuración de préstamos">
                         <field name="borrowing_settings">
-                            <tree string="Borrowing Settings" editable="bottom">
+                            <tree string="Configuración de préstamos" editable="bottom">
                                 <field name="duration"/>
                                 <field name="duration_type"/>
                             </tree> 
                         </field>
                     </page>
-                    <page string="Fine Settings">
+                    <page string="Configuración sobre Multas">
                         <field name="fine_settings">
-                            <tree string="Fine Settings" editable="bottom">
-                                <field name="amount"/>
+                            <tree string="Configuración sobre Multas" editable="bottom">
+                                <field name="amount" />
                                 <field name="duration_type"/>
                             </tree> 
                         </field>

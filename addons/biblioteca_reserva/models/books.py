@@ -461,7 +461,7 @@ class Fine(models.Model):
     """Accrued fines on late/lost book returns."""
 
     _name = "fine"
-    _description = "Fine applied to a particular late book item."
+    _description = "Multa aplicada a un artículo de libro tardío en particular."
     _inherit = "abstract.base"
 
     member = fields.Many2one("member", required=True, ondelete="restrict")
@@ -472,11 +472,11 @@ class Fine(models.Model):
         copy=False, default=lambda self: self._compute_fine()
     )
     due_date = fields.Datetime(
-        help="The return date of the issued book item.",
+        help="La fecha de devolución del elemento contable emitido.",
         copy=False,
     )
     returned_date = fields.Datetime(
-        help="The actual return date of the issued book item.",
+        help="La fecha de devolución real del elemento contable emitido.",
         copy=False,
     )
 
@@ -485,7 +485,7 @@ class Fine(models.Model):
         library = AbstractBase.current_library(self)
         library_fine_settings = library.fine_settings[0]
         if not library_fine_settings:
-            raise UserError("Session library has no active fines settings.")
+            raise UserError("No existen multas activas")
 
         delta = None
         if library_fine_settings.duration_type == "Days":
@@ -501,6 +501,6 @@ class Fine(models.Model):
             delta = self.returned_date - self.due_date
 
         else:
-            raise UserError("Calendar band not implemented.")
+            raise UserError("Calendario no configurado")
 
         return delta * library_fine_settings.amount
