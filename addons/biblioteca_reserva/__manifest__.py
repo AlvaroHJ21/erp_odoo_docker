@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 {
-    "name": "Smart Maktaba",
+    "name": "Biblioteca Reserva",
     "version": "1.0",  # find a way to make this dynamic
     "depends": ["base"],
     "summary": "A smart library management system.",
