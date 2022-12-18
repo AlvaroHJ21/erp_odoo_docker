@@ -9,4 +9,6 @@ Reiniciar los servicios
 docker-compose restart
 ```
 
-guyc-gbt8-seat
+Habilitar modo desarrollador
+
+http://localhost:8069/web?debug=1
