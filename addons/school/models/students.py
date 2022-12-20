@@ -20,7 +20,7 @@ class GeneroFormat:
 # ---------------Curso------------------
 
 class Course(models.Model):
-    _name="course"
+    _name="school.course"
     name=fields.Char(string='Name', required=True)
     description = fields.Text(string="Description")
     crediting=fields.Integer(string='Creditos')
@@ -28,14 +28,14 @@ class Course(models.Model):
 # ---------------Carrera------------------
 
 class Career(models.Model):
-    _name = 'career'
+    _name = 'school.career'
     name = fields.Char(string='Nombre', required=True)
     description = fields.Text(string='Descripción')
 
 # ---------------Estudiante------------------
 
 class Student(models.Model):
-    _name = 'student.add'
+    _name = 'school.student'
     _description = 'Student Information'
 
     name = fields.Char(string='Nombre', required=True)
@@ -47,7 +47,7 @@ class Student(models.Model):
     enrollment_date = fields.Date(string='Enrollment Date')
     # courses_ids = fields.Many2many('course', string='Courses')
     # grades_ids = fields.One2many('grade', 'student_id', string='Grades')
-    major = fields.Many2one('career', string='Carrera')
+    major = fields.Many2one('school.career', string='Carrera')
     # course = fields.Many2many('course', string='Cursos')
 
     genero = fields.Selection(
@@ -69,7 +69,7 @@ class Student(models.Model):
 # ---------------PROFESOR------------------
 
 class Teacher(models.Model):
-    _name = 'teacher'
+    _name = 'school.teacher'
     name = fields.Char(string='Nombre', required=True)
     email = fields.Char(string='Email', required=True)
     phone = fields.Char(string='Teléfono', required=True)
@@ -78,18 +78,18 @@ class Teacher(models.Model):
 # ---------------GRUPO------------------
 
 class Grupo(models.Model):
-    _name = 'grupo'
+    _name = 'school.grupo'
     _description = 'Grupo de Estudiantes'
     
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Descripción')
-    course_id = fields.Many2one('course', string='Curso')
-    teacher_id = fields.Many2one('teacher', string='Profesor')
+    course_id = fields.Many2one('school.course', string='Curso')
+    teacher_id = fields.Many2one('school.teacher', string='Profesor')
 
 # ---------------MATRICULA------------------
 
 class Matricula(models.Model):
-    _name = 'matricula'
+    _name = 'school.matricula'
     _description = 'Matricula de Estudiantes'
     
     semestre = fields.Selection(
@@ -104,6 +104,6 @@ class Matricula(models.Model):
         default="1",
         string="Semestre"
     )
-    student_id = fields.Many2one('student.add', string='Estudiante')
-    grupo_id = fields.Many2many('grupo', string='Grupo')
+    student_id = fields.Many2one('school.student', string='Estudiante')
+    grupo_id = fields.Many2many('school.grupo', string='Grupo')
 

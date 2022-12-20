@@ -4,14 +4,14 @@
     <!-- Action -->
     <record id="matricula_action" model="ir.actions.act_window">
         <field name="name">Gestión de Matrículas</field>
-        <field name="res_model">matricula</field>
+        <field name="res_model">school.matricula</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <!-- Model -->
     <record id="view_matricula_form" model="ir.ui.view">
         <field name="name">Matricula</field>
-        <field name="model">matricula</field>
+        <field name="model">school.matricula</field>
         <field name="arch" type="xml">
             <tree string="Libraries">
                 <field name="semestre"/>
@@ -24,7 +24,7 @@
     <!-- Form -->
     <record id="matricula_view_form" model="ir.ui.view">
         <field name="name">matricula.view.form</field>
-        <field name="model">matricula</field>
+        <field name="model">school.matricula</field>
         <field name="arch" type="xml">
             <form string="Matricula">
                 <sheet>

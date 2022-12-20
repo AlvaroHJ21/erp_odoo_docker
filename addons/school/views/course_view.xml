@@ -4,14 +4,14 @@
     <!-- Action -->
     <record id="course_action" model="ir.actions.act_window">
         <field name="name">Gestión de cursos</field>
-        <field name="res_model">course</field>
+        <field name="res_model">school.course</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <!-- Model -->
     <record id="view_course_form" model="ir.ui.view">
         <field name="name">Cursos</field>
-        <field name="model">course</field>
+        <field name="model">school.course</field>
         <field name="arch" type="xml">
             <tree string="Cursos">
                 <field name="name"/>
@@ -24,8 +24,8 @@
 
     <!-- Form -->
     <record id="course_view_form" model="ir.ui.view">
-        <field name="name">course.view.form</field>
-        <field name="model">course</field>
+        <field name="name">school.course.view.form</field>
+        <field name="model">school.course</field>
         <field name="arch" type="xml">
             <form string="Cursos">
                 <sheet>

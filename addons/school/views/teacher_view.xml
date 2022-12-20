@@ -3,14 +3,14 @@
     <!-- Action -->
     <record model="ir.actions.act_window" id="action_teacher">
         <field name="name">Gestión de profesores</field>
-        <field name="res_model">teacher</field>
+        <field name="res_model">school.teacher</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <!-- Model -->
     <record id="view_teacher_form" model="ir.ui.view">
         <field name="name">Maestro</field>
-        <field name="model">teacher</field>
+        <field name="model">school.teacher</field>
         <field name="arch" type="xml">
             <tree string="Libraries">
                 <field name="name"/>
@@ -23,7 +23,7 @@
     <!-- Form -->
     <record id="teacher_view_form" model="ir.ui.view">
         <field name="name">teacher.view.form</field>
-        <field name="model">teacher</field>
+        <field name="model">school.teacher</field>
         <field name="arch" type="xml">
             <form string="Profesor">
                 <sheet>

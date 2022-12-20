@@ -2,7 +2,7 @@
 <odoo>
     <record model="ir.ui.view" id="student_add_tree_view">
         <field name="name"> Student Tree view</field>
-        <field name="model">student.add</field>
+        <field name="model">school.student</field>
         <field name="priority" eval="16" />
         <field name="arch" type="xml">
             <tree string="Student list">
@@ -17,7 +17,7 @@
 
     <record model="ir.ui.view" id="student_add_form_view">
         <field name="name"> Student.form.view</field>
-        <field name="model">student.add</field>
+        <field name="model">school.student</field>
         <field name="arch" type="xml">
             <form string="Student">
                 <sheet>
@@ -57,7 +57,7 @@
 
     <record model="ir.ui.view" id="career_tree_view">
         <field name="name"> Career Tree view</field>
-        <field name="model">career</field>
+        <field name="model">school.career</field>
         <field name="priority" eval="16" />
         <field name="arch" type="xml">
             <tree string="Carrera list">
@@ -69,13 +69,13 @@
 
     <record model="ir.actions.act_window" id="action_student_add">
         <field name="name">Gestión de estudiantes</field>
-        <field name="res_model">student.add</field>
+        <field name="res_model">school.student</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <record model="ir.actions.act_window" id="action_career">
         <field name="name">Gestión de carreras</field>
-        <field name="res_model">career</field>
+        <field name="res_model">school.career</field>
         <field name="view_mode">tree,form</field>
     </record>
 
