@@ -1,5 +1,5 @@
 {
-    'name': 'Sistema de Gestion Escolar',
+    'name': 'Sistema de Gestion de Estudiantes',
     'author': 'Grupo 5',
     'category':'Extra Tools',
     'version': '1.0.0',
@@ -12,6 +12,7 @@
         'views/teacher_view.xml',
         'views/course_view.xml',
         'views/matricula_view.xml',
+        'views/group_view.xml',
         "views/menu.xml",
         'security/ir.model.access.csv'],
     'demo': [],

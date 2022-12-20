@@ -3,7 +3,7 @@
 
     <!-- Action -->
     <record id="course_action" model="ir.actions.act_window">
-        <field name="name">Gestion de cursos</field>
+        <field name="name">Gestión de cursos</field>
         <field name="res_model">course</field>
         <field name="view_mode">tree,form</field>
     </record>

@@ -29,8 +29,8 @@ class Course(models.Model):
 
 class Career(models.Model):
     _name = 'career'
-    name = fields.Char(string='Name', required=True)
-    description = fields.Text(string='Description')
+    name = fields.Char(string='Nombre', required=True)
+    description = fields.Text(string='Descripción')
 
 # ---------------Estudiante------------------
 
@@ -38,11 +38,11 @@ class Student(models.Model):
     _name = 'student.add'
     _description = 'Student Information'
 
-    name = fields.Char(string='Name', required=True)
+    name = fields.Char(string='Nombre', required=True)
     age = fields.Integer(string='Edad', compute='_compute_age')
-    birth_date = fields.Date(string='Date of Birth')
-    address = fields.Char(string='Address')
-    phone = fields.Char(string='Phone')
+    birth_date = fields.Date(string='Fecha de nacimiento')
+    address = fields.Char(string='Dirección')
+    phone = fields.Char(string='Teléfono')
     email = fields.Char(string='Email')
     enrollment_date = fields.Date(string='Enrollment Date')
     # courses_ids = fields.Many2many('course', string='Courses')
@@ -66,6 +66,26 @@ class Student(models.Model):
                     age -= 1
                 record.age = age
 
+# ---------------PROFESOR------------------
+
+class Teacher(models.Model):
+    _name = 'teacher'
+    name = fields.Char(string='Nombre', required=True)
+    email = fields.Char(string='Email', required=True)
+    phone = fields.Char(string='Teléfono', required=True)
+    # subject_ids = fields.Many2many('school.subject', string='Materias')
+
+# ---------------GRUPO------------------
+
+class Grupo(models.Model):
+    _name = 'group'
+    _description = 'Grupo de Estudiantes'
+    
+    name = fields.Char(string='Name', required=True)
+    description = fields.Text(string='Descripción')
+    course_id = fields.Many2one('course', string='Curso')
+    teacher_id = fields.Many2one('teacher', string='Profesor')
+
 # ---------------MATRICULA------------------
 
 class Matricula(models.Model):
@@ -85,4 +105,5 @@ class Matricula(models.Model):
         string="Semestre"
     )
     student_id = fields.Many2one('student.add', string='Estudiante')
-    course_id = fields.Many2many('course', string='Curso')
+    grupo_id = fields.Many2many('group', string='Grupo')
+

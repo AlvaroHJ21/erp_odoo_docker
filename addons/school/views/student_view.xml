@@ -11,7 +11,6 @@
                 <field name="genero" />
                 <field name="phone" />
                 <field name="email" />
-                <!-- <field name="genero"/> -->
             </tree>
         </field>
     </record>
@@ -27,13 +26,13 @@
                             <separator string="Información personal" />
                             <field name="name" placeholder="Student name" />
                             <!-- <field name="age" placeholder="Age" /> -->
-                            <field name="genero" placeholder="Student genero" />
-                            <field name="birth_date" placeholder="Birth date" />
-                            <field name="address" placeholder="Address" />
+                            <field name="genero" placeholder="Genero" />
+                            <field name="birth_date" placeholder="Fecha de nacimiento" />
+                            <field name="address" placeholder="Dirección" />
                         </group>
                         <group>
                             <separator string="Información de contacto" />
-                            <field name="phone" placeholder="phone" />
+                            <field name="phone" placeholder="Teléfono" />
                             <field name="email" placeholder="Email" />
                         </group>
                         <!-- <field name="major" placeholder="Carrera" />
@@ -79,11 +78,5 @@
         <field name="res_model">career</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-    <!-- <record model="ir.actions.act_window" id="action_course">
-        <field name="name">Gestión de Cursos</field>
-        <field name="res_model">course</field>
-        <field name="view_mode">tree,form</field>
-    </record> -->
 
 </odoo>
