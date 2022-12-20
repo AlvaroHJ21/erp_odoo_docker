@@ -28,6 +28,13 @@ class GeneroFormat:
 #         string="Género"
 #     )
 
+class Course(models.Model):
+    _name="course"
+    name=fields.Char(string='Name', required=True)
+    description = fields.Text(string="Description")
+    crediting=fields.Text(string="Creditaje")
+
+
 class Career(models.Model):
     _name = 'career'
     name = fields.Char(string='Name', required=True)
@@ -47,6 +54,8 @@ class Student(models.Model):
     # courses_ids = fields.Many2many('course', string='Courses')
     # grades_ids = fields.One2many('grade', 'student_id', string='Grades')
     major = fields.Many2one('career', string='Carrera')
+    course = fields.Many2many('course', string='Cursos')
+
     genero = fields.Selection(
         selection=GeneroFormat.SELECTION, 
         default=GeneroFormat.MASCULINO,
