@@ -8,6 +8,8 @@
             <tree string="Student list">
                 <field name="name"/>
                 <field name="age"/>
+                <field name="genero"/>
+
             </tree>
         </field>
     </record>
@@ -25,8 +27,11 @@
                     <h2>
                         <field name="age" placeholder="Student age"/>
                     </h2>
+                    <h2>
+                        <field name="genero" placeholder="Student genero"/>
+                    </h2>
                     <notebook>
-                        <page string="student form">
+                        <page string="student form 1">
                             <group>
 <!--                                <filed name="age"/>-->
                             </group>
