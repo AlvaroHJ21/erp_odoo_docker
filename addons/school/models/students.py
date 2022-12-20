@@ -78,7 +78,7 @@ class Teacher(models.Model):
 # ---------------GRUPO------------------
 
 class Grupo(models.Model):
-    _name = 'group'
+    _name = 'grupo'
     _description = 'Grupo de Estudiantes'
     
     name = fields.Char(string='Name', required=True)
@@ -105,5 +105,5 @@ class Matricula(models.Model):
         string="Semestre"
     )
     student_id = fields.Many2one('student.add', string='Estudiante')
-    grupo_id = fields.Many2many('group', string='Grupo')
+    grupo_id = fields.Many2many('grupo', string='Grupo')
 

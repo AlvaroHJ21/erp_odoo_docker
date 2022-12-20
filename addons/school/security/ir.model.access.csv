@@ -4,4 +4,4 @@ access_career,access_career,model_career,base.group_user,1,1,1,1
 access_course,access_course,model_course,base.group_user,1,1,1,1
 access_teacher,access_teacher,model_teacher,base.group_user,1,1,1,1
 access_matricula,access_matricula,model_matricula,base.group_user,1,1,1,1
-access_group,access_group,model_group,base.group_user,1,1,1,1
+access_grupo,access_grupo,model_grupo,base.group_user,1,1,1,1

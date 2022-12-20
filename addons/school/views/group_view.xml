@@ -4,14 +4,14 @@
     <!-- Action -->
     <record id="group_action" model="ir.actions.act_window">
         <field name="name">Gestión de grupos</field>
-        <field name="res_model">group</field>
+        <field name="res_model">grupo</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <!-- Model -->
     <record id="view_group_form" model="ir.ui.view">
         <field name="name">Grupos</field>
-        <field name="model">group</field>
+        <field name="model">grupo</field>
         <field name="arch" type="xml">
             <tree string="Grupos">
                 <field name="name"/>
@@ -22,8 +22,8 @@
 
     <!-- From -->
     <record id="group_view_form" model="ir.ui.view">
-        <field name="name">group.view.form</field>
-        <field name="model">group</field>
+        <field name="name">grupo.view.form</field>
+        <field name="model">grupo</field>
         <field name="arch" type="xml">
             <form string="">
                 <sheet>
