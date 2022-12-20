@@ -8,8 +8,7 @@
             <tree string="Student list">
                 <field name="name"/>
                 <field name="age"/>
-                <field name="genero"/>
-
+                <!-- <field name="genero"/> -->
             </tree>
         </field>
     </record>
@@ -46,7 +45,7 @@
 
 
     <record model="ir.actions.act_window" id="action_student_add">
-        <field name="name">Gestión de estudiantes 12454354354354355433 </field>
+        <field name="name">Gestión de estudiantes</field>
         <field name="res_model">student.add</field>
         <field name="view_mode">tree,form</field>
     </record>
