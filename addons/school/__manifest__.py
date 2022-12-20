@@ -7,7 +7,7 @@
     'summary': 'Gestion de estudiantes',
     'description': 'Gestion de estudiantes',
     'depends': ['base'],
-    'data': ['views/student_view.xml','security/ir.model.access.csv'],
+    'data': ['views/student_view.xml','views/management.xml','security/ir.model.access.csv'],
     'demo': [],
     'installable': True,
     'application': True,

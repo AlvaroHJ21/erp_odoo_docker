@@ -3,46 +3,67 @@
     <record model="ir.ui.view" id="student_add_tree_view">
         <field name="name"> Student Tree view</field>
         <field name="model">student.add</field>
-        <field name="priority" eval="16"/>
+        <field name="priority" eval="16" />
         <field name="arch" type="xml">
             <tree string="Student list">
-                <field name="name"/>
-                <field name="age"/>
+                <field name="name" />
+                <field name="age" />
+                <field name="genero" />
+                <field name="phone" />
+                <field name="email" />
                 <!-- <field name="genero"/> -->
             </tree>
         </field>
     </record>
 
-
     <record model="ir.ui.view" id="student_add_form_view">
-         <field name="name"> Student.form.view</field>
+        <field name="name"> Student.form.view</field>
         <field name="model">student.add</field>
         <field name="arch" type="xml">
             <form string="Student">
                 <sheet>
-                    <h1>
-                        <field name="name" placeholder="Student name"/>
-                    </h1>
-                    <h2>
-                        <field name="age" placeholder="Student age"/>
-                    </h2>
-                    <h2>
-                        <field name="genero" placeholder="Student genero"/>
-                    </h2>
+                    <group>
+                        <group>
+                            <separator string="Información personal" />
+                            <field name="name" placeholder="Student name" />
+                            <field name="age" placeholder="Age" />
+                            <field name="genero" placeholder="Student genero" />
+                            <field name="birth_date" placeholder="Birth date" />
+                            <field name="address" placeholder="Address" />
+                        </group>
+                        <group>
+                            <separator string="Información de contacto" />
+                            <field name="phone" placeholder="phone" />
+                            <field name="email" placeholder="Email" />
+                        </group>
+                        <field name="major" placeholder="Carrera" />
+                        <!-- <field name="enrollment_date" placeholder="enrollment date"/> -->
+                    </group>
                     <notebook>
                         <page string="student form 1">
                             <group>
-<!--                                <filed name="age"/>-->
+                                <!--                                <filed name="age"/>-->
                             </group>
                         </page>
                     </notebook>
+
                 </sheet>
             </form>
         </field>
     </record>
 
-
-
+    <record model="ir.ui.view" id="career_tree_view">
+        <field name="name"> Career Tree view</field>
+        <field name="model">career</field>
+        <field name="priority" eval="16" />
+        <field name="arch" type="xml">
+            <tree string="Carrera list">
+                <field name="name" />
+                <field name="description" />
+                <!-- <field name="genero"/> -->
+            </tree>
+        </field>
+    </record>
 
     <record model="ir.actions.act_window" id="action_student_add">
         <field name="name">Gestión de estudiantes</field>
@@ -50,9 +71,15 @@
         <field name="view_mode">tree,form</field>
     </record>
 
-    <menuitem name="School" id="school_root_menu"/>
-    <menuitem name="Students" id="student_add_menu"
-              parent="school_root_menu"
-              action="action_student_add"
-              sequence="1"/>
+    <record model="ir.actions.act_window" id="action_career">
+        <field name="name">Gestión de carreras</field>
+        <field name="res_model">career</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="School" id="school_root_menu" />
+
+    <menuitem name="Students" id="student_add_menu" parent="school_root_menu" action="action_student_add"
+        sequence="1" />
+    <menuitem name="Carrera" id="career_menu" parent="school_root_menu" action="action_career" sequence="1" />
 </odoo>
