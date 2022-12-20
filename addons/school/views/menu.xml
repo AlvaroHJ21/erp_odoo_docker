@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <odoo>
-    <menuitem id="school_root_menu" name="Escuela G5">
+    <menuitem id="school_root_menu" name="Gestion Estudiantes G5">
         <menuitem name="Estudiantes" id="student_add_menu" action="action_student_add" />
-        <menuitem name="Carreras" id="career_menu" action="action_career" />
+        <menuitem name="Cursos" id="course_menu" action="course_action" />
+        <menuitem name="Matricula" id="matricula_menu" action="matricula_action" />
         <menuitem name="Profesores" id="teacher_menu" action="action_teacher" />
-        <menuitem name="Cursos" id="course_menu" action="action_course" />
+        <menuitem name="Carreras" id="career_menu" action="action_career" />
     </menuitem>
 </odoo>

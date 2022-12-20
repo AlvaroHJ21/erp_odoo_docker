@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+import datetime
 
 class GeneroFormat:
     MASCULINO = "Masculino"
@@ -16,37 +17,30 @@ class GeneroFormat:
         ("Otro", OTRO),
     ]
 
-# class Student(models.Model):
-#     _name  = 'student.add'
-
-#     name= fields.Char(string="Nombre")
-#     age = fields.Integer(string="Edad")
-
-#     genero = fields.Selection(
-#         selection=GeneroFormat.SELECTION, 
-#         default=GeneroFormat.MASCULINO,
-#         string="Género"
-#     )
+# ---------------Curso------------------
 
 class Course(models.Model):
     _name="course"
     name=fields.Char(string='Name', required=True)
     description = fields.Text(string="Description")
-    crediting=fields.Text(string="Creditaje")
+    crediting=fields.Integer(string='Creditos')
 
+# ---------------Carrera------------------
 
 class Career(models.Model):
     _name = 'career'
     name = fields.Char(string='Name', required=True)
     description = fields.Text(string='Description')
 
+# ---------------Estudiante------------------
+
 class Student(models.Model):
     _name = 'student.add'
     _description = 'Student Information'
 
     name = fields.Char(string='Name', required=True)
+    age = fields.Integer(string='Edad', compute='_compute_age')
     birth_date = fields.Date(string='Date of Birth')
-    age = fields.Integer(string="Edad")
     address = fields.Char(string='Address')
     phone = fields.Char(string='Phone')
     email = fields.Char(string='Email')
@@ -54,7 +48,7 @@ class Student(models.Model):
     # courses_ids = fields.Many2many('course', string='Courses')
     # grades_ids = fields.One2many('grade', 'student_id', string='Grades')
     major = fields.Many2one('career', string='Carrera')
-    course = fields.Many2many('course', string='Cursos')
+    # course = fields.Many2many('course', string='Cursos')
 
     genero = fields.Selection(
         selection=GeneroFormat.SELECTION, 
@@ -62,9 +56,33 @@ class Student(models.Model):
         string="Género"
     )
 
-    # @api.depends('birth_date')
-    # def _compute_age(self):
-    #     for student in self:
-    #         if student.birth_date:
-    #             student.age = (fields.Date.today() - student.birth_date).years
+    @api.depends('birth_date')
+    def _compute_age(self):
+        today = datetime.date.today()
+        for record in self:
+            if record.birth_date:
+                age = today.year - record.birth_date.year
+                if today.month < record.birth_date.month or (today.month == record.birth_date.month and today.day < record.birth_date.day):
+                    age -= 1
+                record.age = age
 
+# ---------------MATRICULA------------------
+
+class Matricula(models.Model):
+    _name = 'matricula'
+    _description = 'Matricula de Estudiantes'
+    
+    semestre = fields.Selection(
+        selection=[
+            ("1", "2021-1"),
+            ("2", "2021-2"),
+            ("3", "2022-1"),
+            ("4", "2022-2"),
+            ("5", "2023-1"),
+            ("6", "2023-2"),
+        ],
+        default="1",
+        string="Semestre"
+    )
+    student_id = fields.Many2one('student.add', string='Estudiante')
+    course_id = fields.Many2many('course', string='Curso')

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Action -->
+    <record id="matricula_action" model="ir.actions.act_window">
+        <field name="name">Matriculas</field>
+        <field name="res_model">matricula</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Model -->
+    <record id="view_matricula_form" model="ir.ui.view">
+        <field name="name">Matricula</field>
+        <field name="model">matricula</field>
+        <field name="arch" type="xml">
+            <tree string="Libraries">
+                <field name="semestre"/>
+                <field name="student_id"/>
+                <field name="course_id" string="Cursos" /> 
+            </tree>
+        </field>
+    </record>
+    
+
+    <!-- Form -->
+    <record id="matricula_view_form" model="ir.ui.view">
+        <field name="name">matricula.view.form</field>
+        <field name="model">matricula</field>
+        <field name="arch" type="xml">
+            <form string="Matricula">
+                <sheet>
+                    <group>
+                        <field name="semestre"/>
+                        <field name="student_id"/> 
+                        <field name="course_id"/> 
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

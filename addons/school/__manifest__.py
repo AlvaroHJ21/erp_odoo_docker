@@ -10,6 +10,8 @@
     'data': [
         'views/student_view.xml',
         'views/teacher_view.xml',
+        'views/course_view.xml',
+        'views/matricula_view.xml',
         "views/menu.xml",
         'security/ir.model.access.csv'],
     'demo': [],
